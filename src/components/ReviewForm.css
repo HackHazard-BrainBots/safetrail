@@ -1,0 +1,209 @@
+/* Glass-morphism review form */
+.review-form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 3rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(245, 245, 245, 0.95) 100%);
+  border-radius: 25px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1),
+              0 0 0 1px rgba(255, 255, 255, 0.4) inset;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  animation: fadeIn 0.6s ease-out;
+}
+
+.review-form-container h2 {
+  color: #2a9d8f;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.review-form-container h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #2a9d8f, transparent);
+  border-radius: 2px;
+}
+
+/* Error message styling */
+.error-message {
+  color: #e76f51;
+  background: rgba(231, 111, 81, 0.1);
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: 500;
+  animation: shake 0.5s ease-in-out;
+}
+
+/* Form group styling */
+.form-group {
+  margin-bottom: 2rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: #2a2a2a;
+  font-size: 1.1rem;
+}
+
+/* Star rating styling */
+.rating-stars {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.rating-stars .star {
+  font-size: 2.5rem;
+  color: #e0e0e0;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.rating-stars .star::before {
+  content: '★';
+  position: absolute;
+  left: 0;
+  color: transparent;
+  background: linear-gradient(135deg, #ffc107, #ff9800);
+  -webkit-background-clip: text;
+  background-clip: text;
+  opacity: 0;
+  transition: inherit;
+}
+
+.rating-stars .star.filled {
+  color: transparent;
+}
+
+.rating-stars .star.filled::before {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.rating-stars .star:hover {
+  transform: scale(1.2);
+}
+
+/* Textarea styling */
+textarea {
+  width: 85%;
+  min-height: 150px;
+  padding: 1.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(5px);
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  color: #2a2a2a;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05),
+              0 0 0 1px rgba(255, 255, 255, 0.3) inset;
+  resize: none;
+}
+
+textarea:focus {
+  border-color: #2a9d8f;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(42, 157, 143, 0.2),
+              0 0 0 1px rgba(255, 255, 255, 0.3) inset;
+  background: white;
+}
+
+/* Submit button styling */
+button[type="submit"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 1.4rem;
+  margin-top: 2rem;
+  background: linear-gradient(135deg, #2a9d8f 0%, #1e7d6c 100%);
+  color: white;
+  border: none;
+  border-radius: 15px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  box-shadow: 0 8px 25px rgba(42, 157, 143, 0.3),
+              0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+  position: relative;
+  overflow: hidden;
+}
+
+button[type="submit"]:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(42, 157, 143, 0.5),
+              0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+}
+
+button[type="submit"]:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-5px); }
+  40%, 80% { transform: translateX(5px); }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .review-form-container {
+    padding: 2rem;
+    border-radius: 20px;
+  }
+  
+  .rating-stars .star {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .review-form-container {
+    padding: 1.5rem;
+    border-radius: 15px;
+  }
+  
+  .review-form-container h2 {
+    font-size: 1.6rem;
+  }
+  
+  .rating-stars {
+    gap: 0.5rem;
+  }
+  
+  .rating-stars .star {
+    font-size: 1.8rem;
+  }
+}
+
+
+

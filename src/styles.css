@@ -1,0 +1,113 @@
+/* General Styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Hero Section */
+.hero-section {
+  background: url('https://via.placeholder.com/1920x1080?text=Himachal+Pradesh') no-repeat center center/cover;
+  color: white;
+  text-align: center;
+  padding: 4rem 2rem;
+  position: relative;
+}
+
+.hero-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+}
+
+.explore-button {
+  background-color: #e76f51;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.explore-button:hover {
+  background-color: #d65a3a;
+}
+
+/* Gallery Section */
+.gallery {
+  text-align: center;
+  padding: 2rem;
+}
+
+.gallery h2 {
+  font-size: 2rem;
+  color: #264653;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.image-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* About Section */
+.about {
+  background-color: #f4f4f4;
+  padding: 2rem;
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 2rem;
+  color: #2a9d8f;
+}
+
+.about p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Footer Section */
+footer {
+  background-color: #2a9d8f;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.social-icons a {
+  color: white;
+  margin: 0 0.5rem;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.social-icons a:hover {
+  text-decoration: underline;
+}

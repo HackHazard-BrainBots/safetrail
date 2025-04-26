@@ -1,0 +1,625 @@
+/* Premium Glassmorphism AddCoins Design */
+
+:root {
+  --primary: #00b894;
+  --primary-dark: #0984e3;
+  --accent: #fdcb6e;
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.85);
+  --glass: rgba(255, 255, 255, 0.1);
+  --glass-dark: rgba(0, 0, 0, 0.2);
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  
+}
+
+body {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+/* Main Container - Floating Glass Panel */
+.add-coins-container {
+  max-width: 600px;
+  margin: 3rem auto;
+  padding: 0;
+  border-radius: 24px;
+  animation: fadeIn 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.add-coins-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0, 184, 148, 0.1), rgba(116, 235, 213, 0.1));
+  z-index: -1;
+  opacity: 0.5;
+}
+
+.add-coins-glass {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 50, 40, 0.25),  /* Darker teal */
+    rgba(0, 30, 80, 0.25)   /* Darker blue */
+  );
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 3rem;
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.35),  /* Darker shadow */
+    inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);  /* Slightly more visible border */
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.add-coins-glass::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(0, 80, 60, 0.15),  /* Dark teal */
+    rgba(0, 40, 100, 0.15),  /* Dark blue */
+    rgba(0, 20, 50, 0.15)    /* Darker blue */
+  );
+  transform: rotate(30deg);
+  transition: all 1s ease;
+  z-index: -1;
+}
+
+.add-coins-glass:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 60, 50, 0.3),  /* Darker teal on hover */
+    rgba(0, 40, 90, 0.3)    /* Darker blue on hover */
+  );
+  box-shadow: 
+    0 30px 60px rgba(0, 0, 0, 0.4),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
+.add-coins-glass:hover::before {
+  transform: rotate(30deg) translate(10%, 10%);
+}
+
+.gold-coin-icon {
+  color: #FFD700; /* Golden color */
+  text-shadow: 
+    0 0 5px #FFD700,
+    0 0 10px #FFD700,
+    0 0 20px #FFD700;
+  filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.7));
+  transition: all 0.3s ease;
+}
+
+/* Optional: Add animation for pulsing glow effect */
+@keyframes coin-pulse {
+  0% { filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.7)); }
+  50% { filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.9)); }
+  100% { filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.7)); }
+}
+
+/* Apply the animation */
+.gold-coin-icon:hover {
+  animation: coin-pulse 2s infinite;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Back Button - Floating Glass */
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--glass);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--text-primary);
+  font-weight: 600;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  transition: var(--transition);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow);
+}
+
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateX(-5px);
+  color: var(--accent);
+  box-shadow: 
+    0 12px 24px rgba(0, 0, 0, 0.3),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+}
+
+/* Header with Glowing Gradient Text */
+.add-coins-container h1 {
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, var(--accent), var(--primary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-shadow: 0 0 15px rgba(253, 203, 110, 0.3);
+  letter-spacing: -0.5px;
+  text-align: center;
+}
+
+/* Form Card - Elevated Glass */
+.add-coins-form {
+  background: var(--glass);
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 
+    0 15px 30px rgba(0, 0, 0, 0.2),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  margin-bottom: 2rem;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.add-coins-form::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0, 184, 148, 0.1), rgba(116, 235, 213, 0.1));
+  z-index: -1;
+}
+
+.add-coins-form:hover {
+  transform: translateY(-8px);
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.3),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
+/* Form Elements - Premium Style */
+.form-group {
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+.input-wrapper input {
+  width: 100%;
+  padding: 1.3rem 1.8rem;
+  padding-right: 5rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 14px;
+  font-size: 1.2rem;
+  transition: var(--transition);
+  background: rgba(0, 0, 0, 0.15);
+  color: var(--text-primary);
+  backdrop-filter: blur(5px);
+  box-shadow: 
+    inset 0 1px 3px rgba(0, 0, 0, 0.1),
+    0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.input-wrapper input:focus {
+  border-color: var(--accent);
+  outline: none;
+  box-shadow: 
+    0 0 0 3px rgba(253, 203, 110, 0.3),
+    inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.input-wrapper .currency {
+  position: absolute;
+  right: 1.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.hint {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-top: 0.8rem;
+  display: block;
+  font-style: italic;
+}
+
+/* Submit Button - Animated Gradient Glow */
+.submit-button {
+  width: 100%;
+  padding: 1.3rem;
+  background: linear-gradient(135deg, var(--accent), var(--primary));
+  color: #2d3436;
+  border: none;
+  border-radius: 14px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 
+    0 8px 25px rgba(253, 203, 110, 0.4),
+    0 4px 10px rgba(9, 132, 227, 0.3);
+  position: relative;
+  overflow: hidden;
+  margin-top: 1.5rem;
+  backdrop-filter: blur(5px);
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  z-index: 1;
+}
+
+.submit-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.3), rgba(255,255,255,0));
+  opacity: 0;
+  transition: var(--transition);
+  z-index: -1;
+}
+
+.submit-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 12px 30px rgba(253, 203, 110, 0.5),
+    0 8px 20px rgba(9, 132, 227, 0.4);
+}
+
+.submit-button:hover::before {
+  opacity: 1;
+}
+
+.submit-button:disabled {
+  background: #636e72;
+  transform: none !important;
+  box-shadow: none !important;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Confirmation Section - Celebration Glass */
+.confirmation-section {
+  background: var(--glass);
+  border-radius: 20px;
+  padding: 3rem;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.25),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  margin-bottom: 2rem;
+  text-align: center;
+  animation: fadeInScale 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+
+
+
+
+.confirmation-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0, 184, 148, 0.15), rgba(116, 235, 213, 0.15));
+  z-index: -1;
+}
+
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.success-icon {
+  font-size: 5rem;
+  color: var(--accent);
+  margin-bottom: 2rem;
+  animation: pulse 2s ease infinite, float 3s ease-in-out infinite;
+  filter: drop-shadow(0 5px 15px rgba(253, 203, 110, 0.4));
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.confirmation-section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  color: white; /* Solid color for best readability */
+  position: relative;
+  text-align: center;
+  padding: 0.5rem 0;
+}
+
+.confirmation-section h2::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 25%;
+  width: 50%;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    rgba(255,255,255,0), 
+    var(--accent), 
+    rgba(255,255,255,0));
+  border-radius: 3px;
+}
+
+.confirmation-section h2 span {
+  position: relative;
+  display: inline-block;
+  padding: 0 1rem;
+}
+
+.confirmation-section h2 span::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 60%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border-radius: 8px;
+  z-index: -1;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.transaction-details {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 16px;
+  padding: 2rem;
+  margin: 2.5rem 0;
+  text-align: left;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.2rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.detail-label {
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 1.05rem;
+}
+
+.detail-value {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 1.1rem;
+}
+
+.status-completed {
+  color: var(--accent);
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(253, 203, 110, 0.3);
+}
+
+/* Action Buttons - Side by Side */
+.action-buttons {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.action-button {
+  flex: 1;
+  padding: 1.2rem;
+  border-radius: 14px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.action-button.primary {
+  background: linear-gradient(135deg, var(--accent), var(--primary));
+  color: #2d3436;
+  box-shadow: 0 8px 25px rgba(253, 203, 110, 0.4);
+}
+
+.action-button.primary:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(253, 203, 110, 0.5);
+}
+
+.action-button.secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+}
+
+.action-button.secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Elegant Info Section - Premium Glass Design */
+.info-section {
+  margin-top: 2.5rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border-left: 2px solid #f1c40f;
+}
+
+.info-section h3 {
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.info-section ul {
+  padding-left: 1.5rem;
+  margin: 0;
+  list-style: none;
+}
+
+.info-section li {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+  position: relative;
+  padding-left: 1.25rem;
+}
+
+.info-section li:last-child {
+  margin-bottom: 0;
+}
+
+.info-section li::before {
+  content: "•";
+  color: #f1c40f;
+  font-size: 1.5rem;
+  position: absolute;
+  left: -0.5rem;
+  top: -0.25rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .info-section {
+    padding: 2rem;
+  }
+  
+  .info-item {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .info-section {
+    padding: 1.5rem;
+  }
+  
+  .info-item {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .info-icon {
+    margin-bottom: 0.5rem;
+  }
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .add-coins-container {
+    margin: 2rem auto;
+  }
+  
+  .add-coins-glass {
+    padding: 2rem;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .confirmation-section {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .add-coins-container h1 {
+    font-size: 2rem;
+  }
+  
+  .add-coins-glass {
+    padding: 1.8rem;
+  }
+  
+  .input-wrapper input {
+    padding: 1.1rem 1.5rem;
+    padding-right: 4.5rem;
+  }
+  
+  .info-section {
+    padding: 1.8rem;
+  }
+}
+
+/* Fallback for browsers without backdrop-filter */
+@supports not (backdrop-filter: blur(10px)) {
+  .add-coins-glass,
+  .add-coins-form,
+  .confirmation-section,
+  .info-section {
+    background: rgba(30, 60, 114, 0.9);
+  }
+  
+  .back-button,
+  .action-button.secondary {
+    background: rgba(30, 60, 114, 0.8);
+  }
+}

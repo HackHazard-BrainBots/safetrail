@@ -1,0 +1,865 @@
+/* CryptoWallet.css - Premium Glassmorphism Redesign */
+
+:root {
+  --primary: #00b894;
+  --primary-dark: #0984e3;
+  --accent: #e17055;
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.9);
+  --text-tertiary: rgba(255, 255, 255, 0.8);
+  --glass: rgba(255, 255, 255, 0.15);
+  --glass-dark: rgba(0, 0, 0, 0.2);
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+.crypto-wallet {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  animation: fadeIn 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Header Section */
+.wallet-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.wallet-header h1 {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 2.8rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #00b894, #74ebd5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.wallet-header p {
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+  backdrop-filter: blur(5px);
+}
+
+/* Navigation Tabs */
+.wallet-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem;
+  gap: 1.2rem;
+  position: relative;
+}
+
+.nav-button {
+  padding: 1rem 2rem;
+  background: var(--glass);
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow);
+  color: var(--text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-button.active {
+  background: linear-gradient(135deg, rgba(0, 184, 148, 0.5), rgba(116, 235, 213, 0.5));
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 
+    0 8px 25px rgba(0, 184, 148, 0.4),
+    0 4px 6px rgba(116, 235, 213, 0.3);
+}
+
+.nav-button:not(.active):hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+.refresh-button {
+  background: var(--glass);
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: var(--text-primary);
+  padding: 0.8rem;
+  border-radius: 50%;
+  transition: var(--transition);
+  backdrop-filter: blur(8px);
+  box-shadow: var(--shadow);
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.refresh-button:hover {
+  color: #74ebd5;
+  background: rgba(255, 255, 255, 0.3);
+  transform: rotate(180deg) scale(1.1);
+}
+
+/* Balance Card - Premium Glass Effect */
+.balance-section {
+  margin-bottom: 3.5rem;
+  perspective: 1000px;
+}
+
+.balance-card {
+  background: linear-gradient(135deg, rgba(0, 184, 148, 0.3), rgba(116, 235, 213, 0.3));
+  color: white;
+  border-radius: 24px;
+  padding: 3rem;
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.25),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: var(--transition);
+  transform-style: preserve-3d;
+  position: relative;
+  overflow: hidden;
+}
+
+.balance-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 70%);
+  transform: rotate(45deg);
+  transition: all 1s ease;
+  opacity: 0.6;
+}
+
+.balance-card:hover {
+  transform: translateY(-8px) rotateX(5deg);
+  box-shadow: 
+    0 35px 60px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
+.balance-card h2 {
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+.coin-icon {
+  font-size: 3rem;
+  color: #fdcb6e;
+  filter: drop-shadow(0 3px 8px rgba(0,0,0,0.3));
+  animation: float 3s ease-in-out infinite;
+  position: absolute;
+  right: 3rem;
+  top: 3rem;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.balance-amount {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 3px 6px rgba(0,0,0,0.3);
+  letter-spacing: -1px;
+}
+
+.currency {
+  display: block;
+  font-size: 1.5rem;
+  opacity: 0.9;
+  margin-top: 0.8rem;
+  font-weight: 400;
+}
+
+.wallet-info {
+  margin-top: 2.5rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.crypto-selector {
+  margin-bottom: 1.5rem;
+}
+
+.crypto-selector label {
+  display: block;
+  margin-bottom: 0.8rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.crypto-dropdown {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(0, 0, 0, 0.15);
+  color: white;
+  font-size: 1rem;
+  backdrop-filter: blur(5px);
+  transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.crypto-dropdown:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.crypto-dropdown:focus {
+  outline: none;
+  background: rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
+}
+
+/* Crypto Portfolio Section */
+.crypto-portfolio {
+  margin-bottom: 3rem;
+}
+
+.crypto-portfolio h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+  position: relative;
+  display: inline-block;
+}
+
+.crypto-portfolio h2::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60%;
+  height: 3px;
+  background: linear-gradient(90deg, #00b894, #74ebd5);
+  border-radius: 3px;
+}
+
+.crypto-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.8rem;
+}
+
+.crypto-card {
+  background: var(--glass);
+  border-radius: 20px;
+  padding: 2rem;
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: var(--transition);
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.crypto-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--crypto-bg);
+  z-index: -1;
+  opacity: 0.3;
+}
+
+.crypto-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.4),
+    0 8px 20px rgba(0, 0, 0, 0.3);
+  border-color: var(--crypto-color);
+}
+
+.crypto-header {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 1.8rem;
+}
+
+.crypto-icon {
+  font-size: 2.5rem;
+  min-width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 8px 20px rgba(0, 0, 0, 0.2),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  filter: drop-shadow(0 2px 5px rgba(0,0,0,0.3));
+}
+
+.crypto-header h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: var(--text-primary);
+}
+
+.crypto-symbol {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.crypto-balance {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  color: var(--crypto-color);
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.crypto-value {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.8rem;
+}
+
+.crypto-rate {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  opacity: 0.8;
+  padding: 0.4rem 0.8rem;
+  background: rgba(0,0,0,0.1);
+  border-radius: 8px;
+  display: inline-block;
+  backdrop-filter: blur(5px);
+}
+
+/* Transaction Section - Premium Redesign */
+/* Enhanced Transaction Section - Premium Glassmorphism */
+.transaction-section {
+  margin-bottom: 3rem;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.transaction-section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  color: var(--text-primary);
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.8rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.transaction-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #00b894, #74ebd5);
+  border-radius: 4px;
+  transform-origin: left;
+  animation: scaleIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.transaction-list {
+  background: linear-gradient(135deg, rgba(0, 184, 148, 0.1), rgba(116, 235, 213, 0.1));
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.25),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: var(--transition);
+  padding: 1.5rem;
+}
+
+.transaction-list:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+}
+
+.transaction-item {
+  display: flex;
+  padding: 1.8rem 2rem;
+  border-radius: 16px;
+  gap: 1.8rem;
+  align-items: center;
+  transition: var(--transition);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.transaction-item:last-child {
+  margin-bottom: 0;
+}
+
+.transaction-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--tx-color), rgba(116, 235, 213, 0.8));
+  transition: var(--transition);
+}
+
+.transaction-item::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
+  z-index: -1;
+}
+
+.transaction-item:hover {
+  transform: translateY(-8px) scale(1.02);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.3),
+    0 5px 10px rgba(0, 0, 0, 0.2),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+}
+
+.transaction-item:hover::before {
+  width: 8px;
+  background: linear-gradient(to bottom, var(--tx-color), #74ebd5);
+}
+
+.tx-icon {
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  flex-shrink: 0;
+  box-shadow: 
+    0 10px 25px rgba(0, 0, 0, 0.25),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  transition: var(--transition);
+  z-index: 1;
+}
+
+.transaction-item:hover .tx-icon {
+  transform: scale(1.15) rotate(5deg);
+  box-shadow: 
+    0 15px 30px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+}
+
+.tx-details {
+  flex: 1;
+  min-width: 0;
+  z-index: 1;
+}
+
+.tx-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.tx-description {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 1.3rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+  min-width: 0;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.tx-amount-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.tx-amount {
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: var(--tx-color);
+  white-space: nowrap;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  letter-spacing: -0.5px;
+}
+
+.tx-crypto-amount {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--tx-color);
+  opacity: 0.9;
+  margin-top: 0.3rem;
+}
+
+.tx-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  align-items: center;
+}
+
+.tx-date {
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.tx-date::before {
+  content: '🕒';
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+.tx-status {
+  font-weight: 700;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.tx-status.completed {
+  background: linear-gradient(135deg, rgba(116, 235, 213, 0.3), rgba(0, 184, 148, 0.3));
+  color: #74ebd5;
+  border: 1px solid rgba(116, 235, 213, 0.5);
+}
+
+/* Empty State - Enhanced */
+.empty-transactions {
+  padding: 5rem 3rem;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(0, 184, 148, 0.1), rgba(116, 235, 213, 0.1));
+  border-radius: 24px;
+  backdrop-filter: blur(25px);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.25),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: var(--transition);
+  margin: 2rem 0;
+}
+
+.empty-transactions:hover {
+  transform: translateY(-8px);
+  box-shadow: 
+    0 30px 60px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+}
+
+.empty-transactions p {
+  margin: 1rem 0;
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.empty-transactions p:first-child {
+  font-size: 1.8rem;
+  color: var(--text-primary);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+
+
+/* Animation for new transactions */
+@keyframes highlightNew {
+  0% { background: rgba(116, 235, 213, 0.3); }
+  100% { background: rgba(255, 255, 255, 0.05); }
+}
+
+.new-transaction {
+  animation: highlightNew 2s ease-out;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid rgba(116, 235, 213, 0.2);
+  border-radius: 50%;
+  border-top-color: #74ebd5;
+  animation: spin 1s ease-in-out infinite;
+  margin-bottom: 1.5rem;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Error Message */
+.error-message {
+  padding: 2.5rem;
+  text-align: center;
+  background: var(--glass-dark);
+  border-radius: 16px;
+  backdrop-filter: blur(15px);
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.error-message button {
+  margin-top: 1.5rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #00b894, #74ebd5);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 8px 20px rgba(0, 184, 148, 0.3);
+}
+
+.error-message button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(0, 184, 148, 0.4);
+}
+
+/* Glass Container */
+.glass-container {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 2.5rem;
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.25),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: var(--transition);
+  margin-bottom: 2rem;
+}
+
+.glass-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 30px 60px rgba(0, 0, 0, 0.3),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .crypto-grid {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .crypto-wallet {
+    padding: 1.5rem 1rem;
+  }
+  
+  .wallet-header h1 {
+    font-size: 2.3rem;
+  }
+  
+  .wallet-nav {
+    gap: 0.8rem;
+  }
+  
+  .nav-button {
+    padding: 0.9rem 1.5rem;
+    font-size: 1rem;
+  }
+  
+  .balance-card {
+    padding: 2.2rem;
+  }
+  
+  .balance-amount {
+    font-size: 3rem;
+  }
+  
+  .coin-icon {
+    font-size: 2.5rem;
+    right: 2.2rem;
+    top: 2.2rem;
+  }
+
+  .transaction-item {
+    padding: 1.5rem;
+    gap: 1.2rem;
+  }
+  
+  .tx-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.8rem;
+  }
+  
+  .tx-description {
+    font-size: 1.1rem;
+  }
+  
+  .tx-amount {
+    font-size: 1.3rem;
+  }
+  
+  .empty-transactions {
+    padding: 3rem 1.5rem;
+  }
+  
+  .empty-transactions p:first-child {
+    font-size: 1.5rem;
+  }
+
+  .glass-container {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .wallet-header h1 {
+    font-size: 2rem;
+    gap: 8px;
+  }
+  
+  .wallet-nav {
+    flex-wrap: wrap;
+  }
+  
+  .balance-card {
+    padding: 1.8rem;
+  }
+  
+  .balance-amount {
+    font-size: 2.5rem;
+  }
+  
+  .transaction-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .tx-header {
+    width: 100%;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .tx-amount-container {
+    align-self: flex-start;
+  }
+  
+  .tx-footer {
+    width: 100%;
+    margin-top: 1rem;
+  }
+  
+  .empty-transactions {
+    padding: 3rem 1.5rem;
+  }
+  
+  .empty-transactions p:first-child {
+    font-size: 1.3rem;
+  }
+  
+  .crypto-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Fallback for browsers without backdrop-filter support */
+@supports not (backdrop-filter: blur(10px)) {
+  .balance-card,
+  .wallet-info,
+  .crypto-card,
+  .transaction-list,
+  .empty-transactions,
+  .nav-button,
+  .refresh-button {
+    background: rgba(30, 60, 114, 0.9);
+  }
+  
+  .crypto-dropdown {
+    background: rgba(0, 0, 0, 0.4);
+  }
+}
